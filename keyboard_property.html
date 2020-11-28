@@ -1,0 +1,50 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<title>keyboard_property</title>
+		<script>
+			if(window.addEventListener)
+			{
+				window.addEventListener("load", init);
+			}
+			function init()
+			{
+				window.addEventListener("keydown", keyFunction);
+				window.addEventListener("keypress", keyFunction);
+				window.addEventListener("keyup", keyFunction);
+			}
+			function keyFunction(e)
+			{
+				switch(e.type)
+				{
+					case "keydown":
+						document.getElementById("kd_key").innerText = e.key;
+						document.getElementById("kd_code").innerText = e.code;
+						break;
+					case "keypress":
+						document.getElementById("kp_key").innerText = e.key;
+						document.getElementById("kp_code").innerText = e.code;
+						break;
+					case "keyup":
+						document.getElementById("ku_key").innerText = e.key;
+						document.getElementById("ku_code").innerText = e.code;
+						break;
+				}
+			}
+
+		</script>
+    </head>
+
+	<body>
+		<p style="color: red;">keydown: </p>
+		key: <span id="kd_key"></span><br>
+		code: <span id="kd_code"></span>
+		<p style="color: red;">keypress: </p>
+		key: <span id="kp_key"></span><br>
+		code: <span id="kp_code"></span>
+		<p style="color: red;">keyup: </p>
+		key: <span id="ku_key"></span><br>
+		code: <span id="ku_code"></span>
+	</body>
+</html>
